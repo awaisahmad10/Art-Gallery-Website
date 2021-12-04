@@ -1,0 +1,56 @@
+
+.main{
+    text-align:center;
+    display: block;
+    margin-left: 100px;
+    
+}
+
+.main-dtl{
+    text-align: center;
+    margin-left: 100px;
+    color: rgb(157, 157, 139);
+}
+
+.main-page{
+    display: block;
+    margin-left: 250px;
+    margin-right: auto;
+    width: 70%;  
+    border: solid;
+    border-image-slice: 1;
+    background: rgb(231,231,122) repeat;
+    background: linear-gradient(270deg, rgba(231,231,122,1) 18%, rgba(168,89,176,1) 100%);
+border-radius: 10px;
+    border-left: 0;
+    border-right: 0;
+    padding: 30px;
+}
+
+.main-page img{
+border:0;
+background: none;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 20px;
+width: 50%;
+padding: 0px;
+border:solid rgb(0, 0, 0);
+border-radius: 5px;
+box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.main-page img:hover{
+    animation:imageAnim ease;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes imageAnim {
+    0%   { width: 50%;}
+    100%  { width: 55%;}
+
+}
+

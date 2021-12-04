@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="ProjectMain.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <title>Gallery</title>
+</head>
+<body>
+<script type="text/javascript">
+window.onload = function() {
+              var land1 = document.getElementById('Landscape1');
+                land1.addEventListener('click', function (e) {
+                   
+                    localStorage.Port=0;
+                    localStorage.Mono=0;
+                   localStorage.Land=1;
+                   localStorage.Dig=0;
+                  
+                }, false);
+                var port1 = document.getElementById('Portrait1');
+                port1.addEventListener('click', function (e) {
+                    
+                   localStorage.Port=1;
+                   localStorage.Land=0;
+                   localStorage.Mono=0;
+                   localStorage.Dig=0;
+                         
+                }, false);
+                var mono = document.getElementById('Mono');
+                mono.addEventListener('click', function (e) {
+                    
+                   localStorage.Mono=1;
+                   localStorage.Land=0;
+                   localStorage.Port=0;
+                   localStorage.Dig=0;
+
+                }, false);
+
+                var dig1 = document.getElementById('Digital1');
+                dig1.addEventListener('click', function(e) {
+
+                   localStorage.Port=0;
+                   localStorage.Land=0;
+                   localStorage.Mono=0;
+                   localStorage.Dig=1;
+
+                }, false);
+            
+                var filterModern = document.querySelector("input[name=Modern-check]");
+                filterModern.addEventListener('change', function() {
+                    if(this.checked){
+                    document.getElementById('Landscape').style.display = "none";
+                    document.getElementById('Portrait').style.display = "none";
+                    document.getElementById('Digital').style.display = "none"; }
+                    else{
+                        document.getElementById('Landscape').style.display = "";
+                    document.getElementById('Portrait').style.display = "";
+                    document.getElementById('Digital').style.display = ""; 
+                    }
+                });
+
+                var filterPortrait = document.querySelector("input[name=Portrait-check]");
+                filterPortrait.addEventListener('change', function() {
+                    if(this.checked){
+                    document.getElementById('Landscape').style.display = "none";
+                    document.getElementById('Modern').style.display = "none";
+                    document.getElementById('Digital').style.display = "none"; }
+                    else{
+                        document.getElementById('Landscape').style.display = "";
+                    document.getElementById('Modern').style.display = "";
+                    document.getElementById('Digital').style.display = ""; 
+                    }
+                });
+                
+                var filterLand = document.querySelector("input[name=Landscape-check]");
+                filterLand.addEventListener('change', function() {
+                    if(this.checked){
+                    document.getElementById('Portrait').style.display = "none";
+                    document.getElementById('Modern').style.display = "none";
+                    document.getElementById('Digital').style.display = "none"; }
+                    else{
+                        document.getElementById('Portrait').style.display = "";
+                    document.getElementById('Modern').style.display = "";
+                    document.getElementById('Digital').style.display = ""; 
+                    }
+                });
+
+                var filterDigi = document.querySelector("input[name=Digital-check]");
+                filterDigi.addEventListener('change', function() {
+                    if(this.checked){
+                    document.getElementById('Portrait').style.display = "none";
+                    document.getElementById('Modern').style.display = "none";
+                    document.getElementById('Landscape').style.display = "none"; }
+                    else{
+                        document.getElementById('Portrait').style.display = "";
+                    document.getElementById('Modern').style.display = "";
+                    document.getElementById('Landscape').style.display = ""; 
+                    }
+                });
+              }
+</script>
+
+    <div class="top-bar">
+        <div><img src="Logo.png"></div>
+        <a href="HomePage.html">Home</a>
+        <a class="active" href="WebProject.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="aboutus.html">About</a>
+        <a href="Purchase.html">Purchase</a>
+      </div>
+
+    <div class="side-bar">
+        <h1>Category</h1>
+        <a><input id="Modern-check"class="side-bar-check" type="checkbox" name="Modern-check" required>Modern</a><br>
+        <a><input id="Portrait-check" class="side-bar-check" type="checkbox" name="Portrait-check" required>Portraits</a><br>       
+        <a><input id="Landscape-check" class="side-bar-check" type="checkbox" name="Landscape-check" required>Landscape</a><br>  
+        <a><input id="Digital-check" class="side-bar-check" type="checkbox" name="Digital-check" required>Digital</a><br>
+        <div><img src="Logo.png"></div>
+      </div>
+
+<div class="main">
+    <div id="Landscape" class="piece"><img class="piece-land" src="Landscape1.jpg" >
+        
+        <a href="ProductPage.html" id="Landscape1" class="button">Product Page..</a><p class="piece-disc"><strong>Heights of Oasis</strong></p></div>
+
+    <div id="Portrait" class="piece"><img class="piece-land" src="Portrait1.jpg">
+        
+        <a href="ProductPage.html" id="Portrait1" class="button">Product Page..</a><p class="piece-disc"><strong>Luis Leo Lopez</strong></p></div>
+        
+    <div id="Modern" class="piece"><img class="piece-land" src="Mono.jpg">
+        
+        <a href="ProductPage.html" id="Mono" class="button">Product Page..</a><p class="piece-disc"><strong>Momento</strong></p></div>
+
+    <div id="Digital" class="piece"><img class="piece-land" src="Digital1.jpg" >
+        
+        <a href="ProductPage.html" id="Digital1" class="button">Product Page..</a><p class="piece-disc"><strong>Fay Realm</strong></p></div>
+</div>
+
+
+</body>
+</html>

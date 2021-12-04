@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="ProjectMain.css">
+    <title>Purchase</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+</head>
+<style>
+    h1 {position:relative;}
+    h2 {position:relative; left: 190px; display: inline-block;}
+    h4 {position:relative; left: 20px;}
+    
+    table, th, td {
+      border:1px solid black;
+      text-align:center;
+    }
+    th {
+      height: 50px;
+    }
+    td {
+      height: 60px;
+    }
+</style>
+<body>
+  <div class="top-bar">
+    <div><img src="Logo.png"></div>
+    <a href="HomePage.html">Home</a>
+    <a href="WebProject.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="aboutus.html">About</a>
+    <a class="active" href="Purchase.html">Purchase</a>
+  </div>
+
+      <div class="side-bar"><img src="Logo.png"></div>
+
+      <div class="main">
+        <img src="PaintingSizes.jpg" width="500" height="500" align="left" position:relative>
+        <h1 align="center">Purchase Painting</h1>
+        <hr width="30%">
+      </div>
+
+      <form method="POST" action="/process_contact.php">
+        <h5 align="right" style="color:red">*2 Selections Per Order*</h5>
+        <h4>First Selection</h4>
+        <label for="Painting1" style="margin-left: 180px;">Select a Painting:</label>
+        <select name="paint1" id="paint1">
+          <option value="~">No Painting</option>
+          <option value="Heights of Oasis">Heights of Oasis</option>
+          <option value="Luis Leo Lopez">Luis Leo Lopez</option>
+          <option value="Momento">Momento</option>
+          <option value="Fay Realm">Fay Realm</option>
+        </select>
+        <label for="Size1" style="margin-left: 140px;">Size:</label>
+        <select name="size1" id="size1">
+          <option value="12 x 18">12" X 18"</option>
+          <option value="18 x 24">18" X 24"</option>
+          <option value="20 x 30">20" X 30"</option>
+          <option value="30 x 40">30" X 40"</option>
+          <option value="40 x 60">40" X 60"</option>
+        </select>
+        <div class="quantity" style="margin-left: -200px;">
+          <button class="plus-btn" type="button" name="button">
+            <img src="plus.svg" alt="" />
+          </button>
+          <input type="text" id=quantity1 value="0">
+          <button class="minus-btn" type="button" name="button">
+            <img src="minus.svg" alt="" />
+          </button>
+        </div>
+      </form></br></br></br>
+
+      <hr width="50%" style="height:4px;background-color:gray"></br>
+
+      <form method="POST" action="/process_contact.php">
+        <h4>Second Selection</h4>
+        <label for="Painting2" style="margin-left: 180px;">Select a Painting:</label>
+        <select name="paint2" id="paint2">
+          <option value="~">No Painting</option>
+          <option value="Heights of Oasis">Heights of Oasis</option>
+          <option value="Luis Leo Lopez">Luis Leo Lopez</option>
+          <option value="Momento">Momento</option>
+          <option value="Fay Realm">Fay Realm</option>
+        </select>
+        <label for="Size2" style="margin-left: 140px;">Size:</label>
+        <select name="size2" id="size2">
+          <option value="12 x 18">12" X 18"</option>
+          <option value="18 x 24">18" X 24"</option>
+          <option value="20 x 30">20" X 30"</option>
+          <option value="30 x 40">30" X 40"</option>
+          <option value="40 x 60">40" X 60"</option>
+        </select>
+        <div class="quantity" style="margin-left: -200px;">
+          <button class="plus-btn" type="button" name="button">
+            <img src="plus.svg" alt="" />
+          </button>
+          <input type="text" id=quantity2 value="0">
+          <button class="minus-btn" type="button" name="button">
+            <img src="minus.svg" alt="" />
+          </button>
+        </div>
+    </form></br></br></br></br>
+
+
+    <script type="text/javascript">
+        $('.minus-btn').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+  
+            if (value > 1) {
+                value = value - 1;
+            } else {
+                value = 0;
+            }
+  
+        $input.val(value);
+  
+        });
+  
+        $('.plus-btn').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+  
+            if (value < 3) {
+              value = value + 1;
+            } else {
+                value =3;
+            }
+  
+            $input.val(value);
+        });
+  
+      $('.like-btn').on('click', function() {
+        $(this).toggleClass('is-active');
+      });
+    </script>
+
+
+    </br><hr></br>
+    <table class="main" style="float: left; width:35%">
+      <tr>
+        <th colspan="6">TOTAL PRICE</th>
+      </tr>
+      <tr>
+        <th>       </th>
+        <th>Painting</th>
+        <th>Size</th>
+        <th>$ of Painting</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td style="width:20%">First Selection</td>
+        <td style="width:17%" id=totalP1>~</td>
+        <td style="width:15%" id=totalSize1>~</td>
+        <td id=totalP1Money>~</td>
+        <td style="width:15%" id=totalQuan1>~</td>
+        <td style="width:18%" id=total1>0</td>
+      </tr>
+      <tr>
+        <td>Second Selection</td>
+        <td id=totalP2>~</td>
+        <td id=totalSize2>~</td>
+        <td id=totalP2Money>~</td>
+        <td id=totalQuan2>~</td>
+        <td id=total2>0</td>
+      </tr>
+    </table>
+
+
+    <script>
+      setInterval(function() {
+        //Painting Prices
+        var painting1Size1 = 149.99;
+        var painting1Size2 = 169.99;
+        var painting1Size3 = 189.99;
+        var painting1Size4 = 209.99;
+        var painting1Size5 = 229.99;
+
+        var painting2Size1 = 184.99;
+        var painting2Size2 = 204.99;
+        var painting2Size3 = 224.99;
+        var painting2Size4 = 244.99;
+        var painting2Size5 = 264.99;
+
+        var painting3Size1 = 119.99;
+        var painting3Size2 = 139.99;
+        var painting3Size3 = 159.99;
+        var painting3Size4 = 179.99;
+        var painting3Size5 = 199.99;
+
+        var painting4Size1 = 420.69;
+        var painting4Size2 = 440.69;
+        var painting4Size3 = 460.69;
+        var painting4Size4 = 480.69;
+        var painting4Size5 = 500.69;
+
+
+        //Customer Values
+        var selection1 = document.getElementById('paint1').value;
+        var selection2 = document.getElementById('paint2').value;
+
+        var quantity1 = document.getElementById('quantity1').value;
+        var quantity2 = document.getElementById('quantity2').value;
+
+        var size1 = document.getElementById('size1').value;
+        var size2 = document.getElementById('size2').value;
+
+        //---------------------------------------------------------------------------
+        //Values Inputed into TOTAL PRICE Table
+        document.getElementById('totalP1').innerHTML = selection1;
+        document.getElementById('totalP2').innerHTML = selection2;
+
+        document.getElementById('totalQuan1').innerHTML = quantity1;
+        document.getElementById('totalQuan2').innerHTML = quantity2;
+
+        document.getElementById('totalSize1').innerHTML = size1;
+        document.getElementById('totalSize2').innerHTML = size2;
+
+        //---------------------------------------------------------------------------
+        //$ of Painting Calc
+        var select1Total = 0;
+        var select2Total = 0;
+
+        //Selection 1
+        if (selection1 == "~"){
+          document.getElementById('totalP1Money').innerHTML = "$0";
+        }
+        else if (selection1 == "Heights of Oasis"){
+          if (size1 == "12 x 18"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting1Size1;
+            select1Total = quantity1 * painting1Size1;
+          }
+          else if (size1 == "18 x 24"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting1Size2;
+            select1Total = quantity1 * painting1Size2;
+          }
+          else if (size1 == "20 x 30"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting1Size3;
+            select1Total = quantity1 * painting1Size3;
+          }
+          else if (size1 == "30 x 40"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting1Size4;
+            select1Total = quantity1 * painting1Size4;
+          }
+          else if (size1 == "40 x 60"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting1Size5;
+            select1Total = quantity1 * painting1Size5;
+          }
+        }
+        else if (selection1 == "Luis Leo Lopez"){
+          if (size1 == "12 x 18"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting2Size1;
+            select1Total = quantity1 * painting2Size1;
+          }
+          else if (size1 == "18 x 24"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting2Size2;
+            select1Total = quantity1 * painting2Size2;
+          }
+          else if (size1 == "20 x 30"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting2Size3;
+            select1Total = quantity1 * painting2Size3;
+          }
+          else if (size1 == "30 x 40"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting2Size4;
+            select1Total = quantity1 * painting2Size4;
+          }
+          else if (size1 == "40 x 60"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting2Size5;
+            select1Total = quantity1 * painting2Size5;
+          }
+        }
+        else if (selection1 == "Momento"){
+          if (size1 == "12 x 18"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting3Size1;
+            select1Total = quantity1 * painting3Size1;
+          }
+          else if (size1 == "18 x 24"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting3Size2;
+            select1Total = quantity1 * painting3Size2;
+          }
+          else if (size1 == "20 x 30"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting3Size3;
+            select1Total = quantity1 * painting3Size3;
+          }
+          else if (size1 == "30 x 40"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting3Size4;
+            select1Total = quantity1 * painting3Size4;
+          }
+          else if (size1 == "40 x 60"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting3Size5;
+            select1Total = quantity1 * painting3Size5;
+          }
+        }
+        else if (selection1 == "Fay Realm"){
+          if (size1 == "12 x 18"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting4Size1;
+            select1Total = quantity1 * painting4Size1;
+          }
+          else if (size1 == "18 x 24"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting4Size2;
+            select1Total = quantity1 * painting4Size2;
+          }
+          else if (size1 == "20 x 30"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting4Size3;
+            select1Total = quantity1 * painting4Size3;
+          }
+          else if (size1 == "30 x 40"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting4Size4;
+            select1Total = quantity1 * painting4Size4;
+          }
+          else if (size1 == "40 x 60"){
+            document.getElementById('totalP1Money').innerHTML = "$" + painting4Size5;
+            select1Total = quantity1 * painting4Size5;
+          }
+        }
+
+        //Selection 2
+        if (selection2 == "~"){
+          document.getElementById('totalP2Money').innerHTML = "$0";
+        }
+        else if (selection2 == "Heights of Oasis"){
+          if (size2 == "12 x 18"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting1Size1;
+            select2Total = quantity2 * painting1Size1;
+          }
+          else if (size2 == "18 x 24"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting1Size2;
+            select2Total = quantity2 * painting1Size2;
+          }
+          else if (size2 == "20 x 30"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting1Size3;
+            select2Total = quantity2 * painting1Size3;
+          }
+          else if (size2 == "30 x 40"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting1Size4;
+            select2Total = quantity2 * painting1Size4;
+          }
+          else if (size2 == "40 x 60"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting1Size5;
+            select2Total = quantity2 * painting1Size5;
+          }
+        }
+        else if (selection2 == "Luis Leo Lopez"){
+          if (size2 == "12 x 18"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting2Size1;
+            select2Total = quantity2 * painting2Size1;
+          }
+          else if (size2 == "18 x 24"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting2Size2;
+            select2Total = quantity2 * painting2Size2;
+          }
+          else if (size2 == "20 x 30"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting2Size3;
+            select2Total = quantity2 * painting2Size3;
+          }
+          else if (size2 == "30 x 40"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting2Size4;
+            select2Total = quantity2 * painting2Size4;
+          }
+          else if (size2 == "40 x 60"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting2Size5;
+            select2Total = quantity2 * painting2Size5;
+          }
+        }
+        else if (selection2 == "Momento"){
+          if (size2 == "12 x 18"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting3Size1;
+            select2Total = quantity2 * painting3Size1;
+          }
+          else if (size2 == "18 x 24"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting3Size2;
+            select2Total = quantity2 * painting3Size2;
+          }
+          else if (size2 == "20 x 30"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting3Size3;
+            select2Total = quantity2 * painting3Size3;
+          }
+          else if (size2 == "30 x 40"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting3Size4;
+            select2Total = quantity2 * painting3Size4;
+          }
+          else if (size2 == "40 x 60"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting3Size5;
+            select2Total = quantity2 * painting3Size5;
+          }
+        }
+        else if (selection2 == "Fay Realm"){
+          if (size2 == "12 x 18"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting4Size1;
+            select2Total = quantity2 * painting4Size1;
+          }
+          else if (size2 == "18 x 24"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting4Size2;
+            select2Total = quantity2 * painting4Size2;
+          }
+          else if (size2 == "20 x 30"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting4Size3;
+            select2Total = quantity2 * painting4Size3;
+          }
+          else if (size2 == "30 x 40"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting4Size4;
+            select2Total = quantity2 * painting4Size4;
+          }
+          else if (size2 == "40 x 60"){
+            document.getElementById('totalP2Money').innerHTML = "$" + painting4Size5;
+            select2Total = quantity2 * painting4Size5;
+          }
+        }
+
+        //---------------------------------------------------------------------------
+        //Total Price in Table
+        document.getElementById('total1').innerHTML = select1Total;
+        document.getElementById('total2').innerHTML = select2Total;
+
+        var OverallTotal = select1Total + select2Total;
+        var provincalTax = document.getElementById('province').value;
+
+        if (provincalTax == "Alberta"){
+          OverallTotal = (OverallTotal * 1.05).toFixed(2);
+        }
+        else if (provincalTax == "British Colombia"){
+          OverallTotal = (OverallTotal * 1.12).toFixed(2);
+        }
+        else if (provincalTax == "Manitoba"){
+          OverallTotal = (OverallTotal * 1.12).toFixed(2);
+        }
+        else if (provincalTax == "Newfoundland and Labrador"){
+          OverallTotal = (OverallTotal * 1.15).toFixed(2);
+        }
+        else if (provincalTax == "Northwest Territories"){
+          OverallTotal = (OverallTotal * 1.05).toFixed(2);
+        }
+        else if (provincalTax == "Nova Scotia"){
+          OverallTotal = (OverallTotal * 1.15).toFixed(2);
+        }
+        else if (provincalTax == "Nunavut"){
+          OverallTotal = (OverallTotal * 1.05).toFixed(2);
+        }
+        else if (provincalTax == "Ontario"){
+          OverallTotal = (OverallTotal * 1.13).toFixed(2);
+        }
+        else if (provincalTax == "Prince Edward Island"){
+          OverallTotal = (OverallTotal * 1.15).toFixed(2);
+        }
+        else if (provincalTax == "Quebec"){
+          OverallTotal = (OverallTotal * 1.14975).toFixed(2);
+        }
+        else if (provincalTax == "Saskatchewan"){
+          OverallTotal = (OverallTotal * 1.11).toFixed(2);
+        }
+        else if (provincalTax == "Yukon"){
+          OverallTotal = (OverallTotal * 1.05).toFixed(2);
+        } 
+
+        document.getElementById('totalPrice').innerHTML = OverallTotal;
+
+      }, 1000);
+    </script>
+
+
+    <h3 style="position:relative; left:400px;">CONTACT INFO</h3><br>
+    <div class="main">
+      <form name="customerInformation" class="main" style="float: left; clear:right;" method="POST" action="/process_contact.php">
+        <label name="fname" id="fname-input" style="position:relative; left:-70px;">First Name:</label>
+        <input style="position:relative; left:-50px;" type="text" pattern="[a-zA-Z ]+" size="20" placeholder="Enter your First name" required>
+        <br><br><br>
+        
+        <label name="lname" id="lname-input" style="position:relative; left:-70px;">Last Name:</label>
+        <input style="position:relative; left:-50px;" type="text" pattern="[a-zA-Z ]+" size="20" placeholder="Enter your Last name" required>
+        <br><br><br>
+
+        <label name="email" id="email-input" style="position:relative; left:-70px;">Email:</label>
+        <input style="position:relative; left:-10px;" type="email" size="20" placeholder="name@email.com" pattern="(.+.com)|(.+.ca)|(.+.net)" required>
+    </form>
+    
+    <form name="customerInformation2" class="main" style="float: right;position:relative; left:-200px;" method="POST" action="/process_contact.php">
+      <label name="address" id="address-input">Address:</label>
+      <input style="position:relative; left:50px;" type="text" pattern="[a-zA-Z0-9-]+" size="22" placeholder="Address" required>
+      <br><br><br>
+      
+      <label name="province" id="province-input">Province:</label>
+      <select name="provinceDropDown" id="province" style="position:relative; left:45px;">
+        <option id="Alberta">Alberta</option>
+        <option id="">British Colombia</option>
+        <option id="">Manitoba</option>
+        <option id="">Newfoundland and Labrador</option>
+        <option id="">Northwest Territories</option>
+        <option id="">Nova Scotia</option>
+        <option id="">Nunavut</option>
+        <option id="">Ontario</option>
+        <option id="">Prince Edward Island</option>
+        <option id="">Quebec</option>
+        <option id="">Saskatchewan</option>
+        <option id="">Yukon</option>
+      </select>
+      <br><br><br>
+
+      <label name="postal" id="postal-input">Postal Code:</label>
+      <input style="position:relative; left:20px;" type="email" size="22" placeholder="Postal Code" pattern="[a-zA-Z0-9-]+" required>
+  </form>
+  </div><br><br><br><br><br><br><br><br><br>
+
+  <div class="main">
+    <h3>Total: $ <span id="totalPrice">0</span></h3>
+  </div>
+  <button class="purchase" type="button" onclick="purchaseFunction()" style="float: right;">Purchase</button>
+  <br><br><br><br>
+
+  <script>
+    function purchaseFunction() {
+      alert("Redirecting to Purchase Page!")
+    }
+  </script>
+
+</body>
+</html>

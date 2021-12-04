@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="ProjectMain.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <title>Product Page</title>
+</head>
+<body>
+    <div class="top-bar">
+        <div><img src="Logo.png"></div>
+        <a href="HomePage.html">Home</a>
+        <a class="active" href="WebProject.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="aboutus.html">About</a>
+        <a  href="Purchase.html">Purchase</a>
+      </div>
+
+      <div class="side-bar"><img src="Logo.png"></div>
+
+<div class="main"> 
+    <img id="Canvas" class="piece-page" src="Blank.jpg">
+    <p class="piece-page" id="dscr"></p>
+</div>
+
+<div id="purch-dtl" class="purch-dtl">
+    <a class="purch-dtl" href="Purchase.html">Add to Cart</a>
+     <p class="purch-dtl" id="painting-price">This Item is : <strong>#.</strong># USD.</p>
+</div>
+
+
+<script type="text/javascript">
+
+
+    function myFunction(a) {
+document.getElementById("Canvas").src =a;
+}
+
+if(localStorage.Land== 1){
+myFunction("Landscape1.jpg"); 
+document.getElementById("dscr").innerHTML=" This piece of landscape art, is a digital art piece. Made by <strong>Madison Flinn</strong> a classical artist who create piece of fictional landscape. <br> The price of this piece is 149.99 USD as of today.(prices change over time)";
+document.getElementById("painting-price").innerHTML="This item is: <strong>149.</strong>99 USD.";
+
+
+}
+if(localStorage.Port== 1){
+myFunction("Portrait1.jpg"); 
+document.getElementById("dscr").innerHTML=" This piece of art was painted in the 1600's by renowned artist <strong>Luis Leo Lopez</strong>. This is one of many portraits painted by him during his time living in South-Western Europe. <br> The price of this piece is 184.99 USD as of today.(prices change over time)";
+document.getElementById("painting-price").innerHTML="This item is: <strong>184.</strong>99 USD.";
+}
+if(localStorage.Mono == 1){
+myFunction("Mono.jpg");
+document.getElementById("dscr").innerHTML=" This unique piece from the 1900's is known as 'Imressionist Digital Art,' which uses short, fine brush strokes to represent the effect of light on objects. This is one of the first pieces painted by artist <strong>Daniel Eskridge</strong>. <br> The price of this piece is 119.99 USD as of today.(prices change over time)";
+document.getElementById("painting-price").innerHTML="This item is: <strong>119.</strong>99 USD.";
+
+
+}
+if(localStorage.Dig== 1){
+    myFunction("Digital1.jpg");
+    document.getElementById("dscr").innerHTML=" This piece uses a very new style of painting called Digital Art. In this painting, artist <strong>Sarah Holliday</strong> used digital techonolgy such as illustration software, graphics tablet and stylus to aid in the presentaion of the piece. <br> The price of this piece is 420.69 USD as of today.(prices change over time)";
+    document.getElementById("painting-price").innerHTML="This item is: <strong>420.</strong>69 USD.";
+
+}
+</script>
+
+</body>
+</html>

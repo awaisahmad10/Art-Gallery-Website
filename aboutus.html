@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="ProjectMain.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.column1 {
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div><img src="Logo.png"></div>
+  <a href="HomePage.html">Home</a>
+  <a href="WebProject.html">Gallery</a>
+  <a href="contact.html">Contact Us</a>
+  <a class="active" href="aboutus.html">About</a>
+  <a  href="Purchase.html">Purchase</a>
+</div>
+
+<div class="side-bar"><img src="Logo.png"></div>
+
+
+<div class="about-section">
+  <h1>About The Dash Gallery</h1>
+  <p>Our team started as a small group of engineering students from Ontario Tech University.<br>
+    Our CEO had an idea to sell art on the internet. He gathered a couple of his classmates and got to work to design an art gallery website.</p>
+</div>
+<h2 style="text-align:center">Our CEO</h2>
+<br><div class="column1" style="width:800px; margin: 0 auto;">
+  <div class="card">
+    <div class="container">
+      <h2>Mohammad Mohammadkhani</h2>
+      <p class="title">CEO & Founder</p>
+      <p>Our CEO & Founder started the Dash Gallery in 2019. They were driven by their passion for the arts!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Mithusan Arulampalam</h2>
+        <p class="title">Lead Art Designer</p>
+        <p>Always inspired by art, Mithusan had always a passion for the visual arts. With their passion for the arts and coding skills, it was a no-brainer for Mithusan to join our team. </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Awais Ahmad</h2>
+        <p class="title">Lead Project Manager</p>
+        <p>With their leadership and organizational skills, Awais is our lead project manager. 
+          Their role consist of keeping the team on task, ensure that project deadlines are always met. </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2>Alexander Mahabir</h2>
+        <p class="title">Lead Marketing Manager</p> 
+        <p>Their role consist of managing and promoting the sales of the art. 
+          They arrange meeting with indivduals who are willing to promote the brand. </p>
+      </div>
+    </div>
+  </div>
+     
+
+
+</body>
+</html>
